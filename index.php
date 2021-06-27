@@ -78,22 +78,7 @@ $conn = mysqli_connect($dbServername, $dbUsername, $dbPassword, $dbName);
     <p><b>Miscellaneous comments (everything else):</b></p>
     <?php
         $sql = "SELECT * FROM sweetwater_test WHERE comments NOT LIKE '%signature %'
-        OR '%referred %' OR '%call %' OR '%candy%' OR '%sweets%';";
-        $result = mysqli_query($conn, $sql);
-        $resultCheck = mysqli_num_rows($result);
-
-        if ($resultCheck > 0) {
-            while ($row = mysqli_fetch_assoc($result)) {
-                echo "<p>" . $row['orderid'] . ": " . $row['comments'] . "</p>";
-            }
-        }
-    ?>
-    </br>
-    <hr>
-
-    <p><b>Expected Ship Date:</b></p>
-    <?php
-        $sql = "SELECT * FROM sweetwater_test WHERE comments LIKE '%Y/%m/%d%';";
+        OR '%referred %' OR '%call %' OR '%candy%';";
         $result = mysqli_query($conn, $sql);
         $resultCheck = mysqli_num_rows($result);
 
